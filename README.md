@@ -32,7 +32,7 @@ ansible_ssh_pass="bkce123"
 ```
 vim group_vars/all
 # system init size percentage
-ntp_server_host: '10.129.178.102' #配置NTP地址
+ntp_server_host: 'ntp1.aliyun.com' #配置NTP地址
 dns_server_host: '114.114.114.114' #配置DNS地址
 
 # Safety reinforcement related configuration
