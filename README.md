@@ -83,3 +83,24 @@ ansible -m ping nodes01
 ansible-playbook playbooks/system_init.yml -e "nodes=nodes01"
 ```
 
+## 检查服务器
+验证远程服务器
+```
+1.检查是否免密
+# ssh 192.168.1.1
+[root@linux-bkce-node1 ~]#
+
+2.检查dns设置
+# cat /etc/redhat-release 
+CentOS Linux release 7.6.1810 (Core) 
+
+3.检查ntp时间同步状态
+# ntpstat 
+synchronised to NTP server (120.25.115.20) at stratum 3
+   time correct to within 25 ms
+   polling server every 64 s
+如果出现以下问题：
+# ntpstat 
+Unable to talk to NTP daemon. Is it running?
+建议重启一下chronyd服务即可： systemctl restart chronyd
+```
