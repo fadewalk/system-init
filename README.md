@@ -21,16 +21,19 @@ yum -y install ansible vim git
 
 ## 拉取代码
 ```
-git clone git@gitee.com:chriscentos/system-init.git
+cd /root/
+git clone https://gitee.com/chriscentos/system-init.git
 ```
 
 ## 复制模版信息
 ```
+cd /root/system-init/
 \cp group_vars/all-template group_vars/all
 \cp hosts-example hosts
 ```
 
 ## 配置主机列表
+vim hosts
 ```
 [nodes01]
 192.168.1.10 
@@ -41,9 +44,9 @@ ansible_ssh_user=root
 ansible_ssh_pass="bkce123"
 ```
 
-## 请您优先配置脚本初始化变量
-```
+## 初始化变量
 vim group_vars/all
+```
 # system init size percentage
 ntp_server_host: 'ntp1.aliyun.com' #配置NTP地址
 dns_server_host: '114.114.114.114' #配置DNS地址
@@ -55,7 +58,7 @@ root_public_key: ''  #设置免密公钥
 root_passwd: 'bkce123'
 ```
 
-## 服务器优化脚本执行方式
+## 服务器优化
 ```
 ansible-playbook playbooks/system_init.yml -e "nodes=nodes01"
 ```
