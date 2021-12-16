@@ -11,6 +11,7 @@
 rm -f /etc/yum.repos.d/*.repo
 curl -o /etc/yum.repos.d/CentOS-Base.repo http://mirrors.cloud.tencent.com/repo/centos7_base.repo
 curl -o /etc/yum.repos.d/epel.repo http://mirrors.cloud.tencent.com/repo/epel-7.repo
+yum repolist
 ```
 
 ## 软件包安装
