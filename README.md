@@ -33,7 +33,7 @@ yum repolist
 yum -y install ansible vim git
 ```
 
-## 拉取代码
+## 拉取远程代码
 ```
 cd /root/
 git clone https://gitee.com/chriscentos/system-init.git
@@ -117,4 +117,8 @@ synchronised to NTP server (120.25.115.20) at stratum 3
 # ntpstat 
 Unable to talk to NTP daemon. Is it running?
 建议重启一下chronyd服务即可： systemctl restart chronyd
+
+4.检查数据盘是否挂载(可选)
+# df -h|grep data
+/dev/sdb        500G   61G  440G  13% /data
 ```
