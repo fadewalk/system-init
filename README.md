@@ -39,9 +39,21 @@ vim hosts
 192.168.1.10 
 
 [all:vars]
-ansible_ssh_port=22
-ansible_ssh_user=root
-ansible_ssh_pass="bkce123"
+ansible_ssh_port=22            ## 设置远程服务器端口
+ansible_ssh_user=root          ## 设置远程服务器用户
+ansible_ssh_pass="bkce123"     ## 设置远程服务器密码
+```
+
+## 生成密钥对
+检查是否存在密钥对
+```
+# ls -l /root/.ssh/id_rsa*
+-rw------- 1 root root 1679 Dec  3 22:51 /root/.ssh/id_rsa
+-rw-r--r-- 1 root root  403 Dec  3 22:51 /root/.ssh/id_rsa.pub
+```
+若已生成密钥对，则可以跳过此操作
+```
+# ssh-keygen    ## 执行此命令，然后一直回车即可
 ```
 
 ## 初始化变量
@@ -56,6 +68,13 @@ auth_keys_file: '/root/.ssh/authorized_keys' #设置key文件地址
 password_auth: 'yes' #是否开启密码登录，yes表示开启 no表示不开启
 root_public_key: ''  #设置免密公钥
 root_passwd: 'bkce123'
+```
+
+## 服务器检查
+检查远程服务器的SSH连接状态
+```
+ansible -m ping nodes01
+192.168.1.10 | SUCCESS => {
 ```
 
 ## 服务器优化
