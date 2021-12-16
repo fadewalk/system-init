@@ -11,6 +11,15 @@
 数据盘：  建议使用不小于100GB的空间（可选）
 ```
 
+## 挂载数据盘(可选)
+如果服务器需要挂载数据盘，可使用以下快捷命令
+```
+mkfs.xfs -f /dev/sdb
+mkdir -p /data
+mount /dev/sdb /data/
+ echo "/dev/sdb                                  /data                   xfs     defaults        0 0" >>/etc/fstab ; cat /etc/fstab |grep data
+```
+
 ## 配置YUM仓库
 ```
 rm -f /etc/yum.repos.d/*.repo
