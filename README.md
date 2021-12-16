@@ -6,9 +6,21 @@
 系统内核：3.10.0-957.el7.x86_64
 ```
 
+## 配置YUM仓库
+```
+rm -f /etc/yum.repos.d/*.repo
+curl -o /etc/yum.repos.d/CentOS-Base.repo http://mirrors.cloud.tencent.com/repo/centos7_base.repo
+curl -o /etc/yum.repos.d/epel.repo http://mirrors.cloud.tencent.com/repo/epel-7.repo
+```
+
 ## 软件包安装
 ```
-yum -y install ansible vim
+yum -y install ansible vim git
+```
+
+## 拉取代码
+```
+git clone git@gitee.com:chriscentos/system-init.git
 ```
 
 ## 复制模版信息
