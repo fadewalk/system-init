@@ -12,4 +12,4 @@
   service: name=rsyslog state=restarted enabled=yes
 
 - name: Restart chronyd
-  service: name=chronyd state=restarted
+  service: name=chronyd state=restarted enabled=yes

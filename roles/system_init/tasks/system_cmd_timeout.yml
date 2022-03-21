@@ -2,7 +2,7 @@
 - name: Set system cmd timeout
   lineinfile:
     path: /etc/profile
-    line: 'export TMOUT=300'
+    line: 'export TMOUT=9999999'
   tags: cmd_timeout
 
 - name: Source system cmd timeout
